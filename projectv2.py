@@ -70,7 +70,7 @@ else:
     except Exception as e:
         print("WalkDir: ",str(e))
 
-sortedResult = sorted(results.items(),key=lambda item:item[1]['date'],reverse=True)
+sortedResult = sorted(results.items(),key=lambda item:item[1]['date'],reverse=False)
 show = {k[0]:k[1] for k in sortedResult[:10]}
 counter = 1
 
