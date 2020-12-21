@@ -3,12 +3,16 @@ import sys,os,datetime
 results = {}
 
 def CheckPath():
+    if len(sys.argv) <2:
+        print('\nPath was not inserted.')
+        return False
     if(os.path.exists(sys.argv[1])==False):
         print("Invalid path")
         return False
     else:
         os.system('cls' if os.name == 'nt' else 'clear')
         return True
+
 def GetDirectorySize(path):
     finalSize = 0
     for (root,directories,files) in os.walk(path):
@@ -63,7 +67,7 @@ def RemoveNonEmptyDirectory(path):
             os.rmdir(os.path.join(root,d))
 
 if(CheckPath() == False):
-    SystemExit
+    raise SystemExit
 else:
     try:
         WalkDir()
